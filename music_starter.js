@@ -4,44 +4,49 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   textFont('Helvetica'); // please use CSS safe fonts
   rectMode(CENTER)
   ellipseMode(RADIUS)
-  colorMode(RGB)
   textSize(24);
-  strokeWeight(0)
-  let yellow = color(247, 193, 12);
-  let red = color(204, 47, 12);
+  noStroke()
+  // let yellow = (247, 193, 12)
+  // let red = (204, 47, 12)
  
   let lerpmap = map(drum, 0, 100, 0, 1);
-  let middleColour = lerpColor(red, yellow, lerpmap)
+  //let middleColour = lerpColor(red, yellow, lerpmap)
   var linex = map(bass / 2 + other / 3, 0, 100, width / 2, width);
   var linexmirror = map(bass / 2 + other / 3, 0, 100, width / 2, 0);
   var explosion = map(drum, 0, 100, height / 2, 0);
+// fill(middleColour)
+rect(linex, height / 2, 20, height);
+rect(linexmirror, height / 2, 20, height);
+rect(width / 2, height, explosion, explosion);
 
-
-
-
-  fill(middleColour)
-  rect(linex, height / 2, 20, height);
-  rect(linexmirror, height / 2, 20, height);
-  rect(width / 2, height, explosion, explosion);
-
-  fill(100, 255, 100, 100);
-  rect(0, 0, 720, 1280)
-
-let gradient = drawingContext.createRadialGradient(sX, sY, eX, eY, eR
-
-)
-
-  radialGradient(
-    width / 2, height / 2, 0,
-    width / 2, height / 2, 255,
-    color(yellow),
-    color(red)
-  );
-  ellipse(width / 2, height / 2, width, height)
+fill(100, 255, 100, 100);
+rect(0, 0, 720, 1280)
 
 }
-function radialGradient()
+function draw_one_frame(words, vocal, drum, bass, other, counter){
 
+  
+radialGradient(
+  width/2, height/2, 0,
+  width/2, height/2, 500,
+  color(255, 255, 255, 0), 
+  color(255, 255, 100, 100), 
+);
+ellipse(width/2, height/2, 400, 400);
+}
+
+
+function radialGradient(sX, sY, sR, eX, eY, eR, colorS, colorE){
+  let gradient = drawingContext.createRadialGradient(
+    sX, sY, sR, eX, eY, eR
+  );
+  gradient.addColorStop(0, colorS);
+  gradient.addColorStop(1, colorE);
+
+  drawingContext.fillStyle = gradient;
+
+  
+}
 
 //let bar_spacing = height / 10;
 //  let bar_height = width / 12;
