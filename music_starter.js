@@ -57,7 +57,7 @@ let titanX = width/2
 
 //7200 words begina again flares and shootimg time light reflect back revel features of titan gatcannon and plasma
 
-//eyes needed then finished!!!!!!!
+//eyes needed then finished!!!!!!! and film lines if wanted
 
 
 
